@@ -77,7 +77,10 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
       prefixCls={prefixCls}
       className={classString}
       wrapClassName={classNames({ [`${contentPrefixCls}-centered`]: !!props.centered })}
-      onCancel={() => close({ triggerCancel: true })}
+      onCancel={() => {
+        onCancel?.();
+        close({ triggerCancel: true });
+      }}
       visible={visible}
       title=""
       transitionName={transitionName}
